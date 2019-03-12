@@ -1,4 +1,8 @@
 module.exports = function makeExchange(currency) {
+  if (currency <= 0) return {};
+  if (currency > 10000) {
+    return {error: "You are rich, my friend! We don't have so much coins for exchange"};
+  }
   let value = currency;
   let result = {};
   
@@ -17,20 +21,4 @@ module.exports = function makeExchange(currency) {
     }
     if (value == 0) return result;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
